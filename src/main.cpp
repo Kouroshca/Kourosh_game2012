@@ -263,9 +263,9 @@ int main(void)
             glLineWidth(1.0f);  // Adjust the line width if needed
             glBindVertexArray(vaoLines);
 
-            // Initialize first square vertices (the outermost square)
+            //the outermost square
             Vector2 curr[4] = {
-                { -1.0f,  1.0f },  // top-left
+                { -1.0f,  1.0f },   // the location of the vertixes top-left
                 {  1.0f,  1.0f },  // top-right
                 {  1.0f, -1.0f },  // bottom-right
                 { -1.0f, -1.0f }   // bottom-left
@@ -278,12 +278,12 @@ int main(void)
                 glBufferSubData(GL_ARRAY_BUFFER, 0, 4 * sizeof(Vector2), curr);
                 glDrawArrays(GL_LINE_LOOP, 0, 4);
 
-                // Calculate midpoints for the next square
+                
                 Vector2 next[4] = {
-                    (curr[0] + curr[1]) * 0.5f,  // midpoint top-left and top-right
-                    (curr[1] + curr[2]) * 0.5f,  // midpoint top-right and bottom-right
-                    (curr[2] + curr[3]) * 0.5f,  // midpoint bottom-right and bottom-left
-                    (curr[3] + curr[0]) * 0.5f   // midpoint bottom-left and top-left
+                    (curr[0] + curr[1]) * 0.5f,  // midpoint of shapes
+                    (curr[1] + curr[2]) * 0.5f,  
+                    (curr[2] + curr[3]) * 0.5f,  
+                    (curr[3] + curr[0]) * 0.5f   
                 };
 
                 // Copy 'next' vertices to 'curr' for the next iteration
